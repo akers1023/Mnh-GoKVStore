@@ -1,0 +1,31 @@
+name: Test on Linux
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+    
+    - name: Check code compiles
+      run: go build ./...
+    
+    - name: Verify structure
+      run: |
+        echo "Project structure check:"
+        ls -la
+        ls -la cmd/engine/
+        ls -la internal/container/
+        ls -la service/
+
