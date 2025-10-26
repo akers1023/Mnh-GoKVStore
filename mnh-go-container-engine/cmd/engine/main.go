@@ -37,8 +37,7 @@ func main() {
 }
 
 func showHelp() {
-  fmt.Println(`
-Mnh-Go-Container-Engine - A minimal container runtime
+  fmt.Println(`Mnh-Go-Container-Engine - A minimal container runtime
 
 USAGE:
   go run main.go run <command>
@@ -59,8 +58,7 @@ CURRENT CONFIGURATION:
 
 To change the root filesystem path, edit DefaultRootFS in main.go
 
-For more information, see README.md
-`)
+For more information, see README.md`)
 }
 
 // Parent Process (Gọi run)
@@ -70,7 +68,7 @@ func run() {
   // Lệnh sẽ chạy bên trong container (ví dụ: /bin/sh)
   // Bắt đầu từ os.Args[2:] để bỏ qua "program_name" và "run"
   command := os.Args[2:]
-  
+
   if len(command) == 0 {
     log.Fatalf("No command specified. Usage: go run main.go run <command>")
   }
